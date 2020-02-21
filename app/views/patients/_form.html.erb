@@ -1,0 +1,43 @@
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fName, "First Name" %>
+    <%= form.text_field :fName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lName, "Last Name" %>
+    <%= form.text_field :lName %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dob, "Date of Birth" %>
+    <%= form.date_select :dob, :order=>[:month, :day, :year], 
+        start_year: Date.today.year-10, end_year: Date.today.year-100 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.select :gender, ['M', 'F', 'NB', 'GNC'] %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
