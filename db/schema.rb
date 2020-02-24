@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_034819) do
+ActiveRecord::Schema.define(version: 2020_02_21_212455) do
 
   create_table "patients", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "fName"
@@ -30,9 +30,6 @@ ActiveRecord::Schema.define(version: 2020_02_13_034819) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
     t.string "first_name"
     t.string "last_name"
     t.string "confirmation_token"
@@ -41,9 +38,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_034819) do
     t.string "unconfirmed_email"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["provider"], name: "index_users_on_provider"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["uid"], name: "index_users_on_uid"
   end
 
 end

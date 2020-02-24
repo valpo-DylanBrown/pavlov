@@ -18,19 +18,28 @@
         <a class="nav-link" href="#">Treatment Plans</a>
       </li>
     </ul>
-  <% if user_signed_in? %>
-<div class="btn btn-danger btn-sm mr-auto text-center">
-  <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => 'btn' ) %>   
-</div>
 
-<% end %>
-
-  <%= form_tag patients_path, method: :get, :class => 'form-inline' do%>
+  <%= form_tag patients_path, method: :get, :class => 'form-inline mr-auto' do%>
     <%= text_field_tag :search, params[:search], placeholder: "Search Patients", class: 'form-control mr-sm-2' %>
     <span class="input-group-btn">
-      <%= submit_tag "Search", class: 'btn btn-secondary my-2 my-sm-0' %>
+      <%= submit_tag "Search", class: 'btn btn-outline-dark my-2 my-sm-0' %>
     </span>
   <% end %>
+
+<div class="btn-group">
+
+ <button type="button" class="btn btn-outline-dark dropdown-toggle mr-auto text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Logged in as: 
+    <%= current_user.first_name + ' ' + current_user.last_name %>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <%= link_to('Profile', edit_user_registration_path, :class => 'dropdown-item' ) %>
+    <div class="dropdown-divider"></div>
+    <button class="dropdown-item" type="button">Help</button>
+    <%= link_to('Sign Out', destroy_user_session_path, method: :delete, :class => 'dropdown-item' ) %> 
+    
+  </div>
+</div>
 
 
 </nav>
