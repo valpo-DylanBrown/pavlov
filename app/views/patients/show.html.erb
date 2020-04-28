@@ -1,23 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Fname:</strong>
+  <strong>First Name:</strong>
   <%= @patient.fName %>
 </p>
 
 <p>
-  <strong>Lname:</strong>
+  <strong>Last Name:</strong>
   <%= @patient.lName %>
 </p>
 
 <p>
-  <strong>Dob:</strong>
+  <strong>DOB:</strong>
   <%= @patient.dob %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @patient.age %>
 </p>
 
 <p>
@@ -25,5 +20,15 @@
   <%= @patient.gender %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @patient.user_id %>
+</p>
+<% unless @patient.treatment.blank? %>
+  <p>
+    <strong> Treatment Plan: </strong>
+    <%= link_to @patient.treatment.filename, rails_blob_path(@patient.treatment, disposistion: "attachment"), target: :_blank %>
+  </p>
+<% end %>
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

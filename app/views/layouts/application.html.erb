@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-100">
   <head>
     <title>PavlovBeta</title>
     <%= csrf_meta_tags %>
@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="h-100">
     <% if current_user %>
       <%= render 'layouts/navbar' %>
     <% end %>

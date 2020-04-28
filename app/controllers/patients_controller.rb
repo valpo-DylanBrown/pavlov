@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-     if params[:search]
+    if params[:search]
        @patients = Patient.search_by_full_name(params[:search])
      else
        @patients = Patient.all
@@ -73,6 +73,6 @@ class PatientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def patient_params
-      params.require(:patient).permit(:fName, :lName, :dob, :age, :gender, :search)
+      params.require(:patient).permit(:fName, :lName, :dob, :gender, :user_id, :treatment)
     end
 end

@@ -4,8 +4,8 @@ class CreatePatients < ActiveRecord::Migration[6.0]
       t.string :fName
       t.string :lName
       t.date :dob
-      t.integer :age
       t.string :gender
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

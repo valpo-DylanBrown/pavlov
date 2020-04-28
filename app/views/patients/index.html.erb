@@ -1,26 +1,28 @@
-<div class="container" style="border:1px solid #cecece;>
 <p id="notice"><%= notice %></p>
 
-<table>
+<h1>Patients</h1>
+
+<table class="table">
   <thead>
     <tr>
       <th>First Name</th>
       <th>Last Name</th>
       <th>DOB</th>
-      <th>Age</th>
       <th>Gender</th>
+      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @patients.each do |patient| %>
+      
       <tr>
         <td><%= patient.fName %></td>
         <td><%= patient.lName %></td>
         <td><%= patient.dob %></td>
-        <td><%= patient.age %></td>
         <td><%= patient.gender %></td>
+        <td><%= patient.user_id%></td>
         <td><%= link_to 'Show', patient %></td>
         <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
         <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,4 +34,3 @@
 <br>
 
 <%= link_to 'New Patient', new_patient_path %>
-</div>

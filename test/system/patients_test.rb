@@ -14,11 +14,11 @@ class PatientsTest < ApplicationSystemTestCase
     visit patients_url
     click_on "New Patient"
 
-    fill_in "Age", with: @patient.age
     fill_in "Dob", with: @patient.dob
     fill_in "Fname", with: @patient.fName
     fill_in "Gender", with: @patient.gender
     fill_in "Lname", with: @patient.lName
+    fill_in "User", with: @patient.user_id
     click_on "Create Patient"
 
     assert_text "Patient was successfully created"
@@ -29,11 +29,11 @@ class PatientsTest < ApplicationSystemTestCase
     visit patients_url
     click_on "Edit", match: :first
 
-    fill_in "Age", with: @patient.age
     fill_in "Dob", with: @patient.dob
     fill_in "Fname", with: @patient.fName
     fill_in "Gender", with: @patient.gender
     fill_in "Lname", with: @patient.lName
+    fill_in "User", with: @patient.user_id
     click_on "Update Patient"
 
     assert_text "Patient was successfully updated"

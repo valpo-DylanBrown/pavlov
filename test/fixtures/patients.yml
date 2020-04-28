@@ -3,13 +3,13 @@
 one:
   fName: MyString
   lName: MyString
-  dob: 2020-02-10
-  age: 
+  dob: 2020-04-02
   gender: MyString
+  user: one
 
 two:
   fName: MyString
   lName: MyString
-  dob: 2020-02-10
-  age: 
+  dob: 2020-04-02
   gender: MyString
+  user: two

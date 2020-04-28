@@ -12,29 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :fName, "First Name" %>
+    <%= form.label :fName, 'First Name' %>
     <%= form.text_field :fName %>
   </div>
 
   <div class="field">
-    <%= form.label :lName, "Last Name" %>
+    <%= form.label :lName, 'Last Name' %>
     <%= form.text_field :lName %>
   </div>
 
   <div class="field">
-    <%= form.label :dob, "Date of Birth" %>
-    <%= form.date_select :dob, :order=>[:month, :day, :year], 
-        start_year: Date.today.year-10, end_year: Date.today.year-100 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.text_field :age %>
+    <%= form.label :dob, 'DOB' %>
+    <%= form.date_select :dob, order: [:month, :day, :year]%>
   </div>
 
   <div class="field">
     <%= form.label :gender %>
-    <%= form.select :gender, ['M', 'F', 'NB', 'GNC'] %>
+    <%= form.select :gender, ['M', 'F', 'NB', 'GNC', 'Other'], { :class => 'select' }%>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, User.all, :id, :first_name%>
+  </div>
+  
+  <div class="field">
+    <%= form.label :treatment, 'Treatment Plan' %>
+    <%= form.file_field :treatment %>
   </div>
 
   <div class="actions">
