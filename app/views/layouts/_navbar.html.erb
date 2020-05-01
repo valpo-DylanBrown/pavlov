@@ -12,11 +12,16 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="patients" >Patients</a>
+        <%= link_to "Patients", patients_path, :class=>"nav-link" %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://forms.gle/nWHvJuai9Fa411959" target="_blank">Treatment Plans</a>
       </li>
+      <% if current_user.admin? %>
+        <li class="nav-item">
+          <%= link_to "Invite New User", new_user_invitation_path, :class=>"nav-link" %>
+        </li>
+      <% end %>
     </ul>
 
   <%= form_tag patients_path, method: :get, :class => 'form-inline mr-auto' do%>

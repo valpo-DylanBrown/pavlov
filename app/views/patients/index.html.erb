@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Patients</h1>
 
@@ -16,7 +16,7 @@
 
   <tbody>
     <% @patients.each do |patient| %>
-      
+
       <tr>
         <td><%= patient.fName %></td>
         <td><%= patient.lName %></td>
@@ -32,5 +32,6 @@
 </table>
 
 <br>
-
+<% if current_user.admin? %>
 <%= link_to 'New Patient', new_patient_path %>
+<% end %>

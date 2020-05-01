@@ -27,6 +27,7 @@ gem 'bootstrap',  '~>4.3.1'
 gem 'font_awesome5_rails'
 # Devise
 gem 'devise'
+gem 'devise_invitable', '~> 2.0.0'
 # Google OAuth2
 #gem 'omniauth-google-oauth2'
 gem 'omniauth'
