@@ -1,5 +1,18 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.hosts.clear
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.perform_deliveries = :smtp
+  config.action_mailer.default_url_options = { :host => 'ec2-3-23-84-162.us-east-2.compute.amazonaws.com' }
+  config.action_mailer.smtp_settings = {
+    user_name: 'choices.pavlov@gmail.com',
+    password:  'g0valp012',
+    domain:    'gmail.com',
+    address: 'smtp.gmail.com',
+    port:      '587',
+    authentication: :plain,
+    enable_starttls_auto: true
+ }
 
   # Code is not reloaded between requests.
   config.cache_classes = true

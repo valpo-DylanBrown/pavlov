@@ -51,6 +51,8 @@ test:
 #
 production:
   <<: *default
-  database: pavlov_beta_production
-  username: pavlov_beta
-  password: <%= ENV['PAVLOV_BETA_DATABASE_PASSWORD'] %>
+  database: <%= ENV['RDS_DATABASE'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOST'] %>
+  port: 3306

@@ -1,3 +1,4 @@
+
 <%= form_with(model: patient, local: true) do |form| %>
   <% if patient.errors.any? %>
     <div id="error_explanation">
@@ -23,7 +24,7 @@
 
   <div class="field">
     <%= form.label :dob, 'DOB' %>
-    <%= form.date_select :dob, order: [:month, :day, :year]%>
+    <%= form.date_select :dob, order: [:month, :day, :year], start_year:1950, end_year: Date.today.year - 5%>
   </div>
 
   <div class="field">
